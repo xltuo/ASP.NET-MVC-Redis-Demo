@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ContosoTeamStats.Models.Team>
+
+@{
+  ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+  <table class="table">
+    <tr>
+      <td>
+        @Html.ActionLink("Create New", "Create")
+      </td>
+      <td>
+        @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
+      </td>
+      <td>
+        @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
+      </td>
+      <td>
+        @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
+      </td>
+      <td>
+        @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
+      </td>
+      <td>
+        @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
+      </td>
+      <td>
+        @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
+      </td>
+      <td>
+        @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
+      </td>
+    </tr>
+  </table>
+</p>
+<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Name)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Wins)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Losses)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Ties)
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Wins)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Losses)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Ties)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+      </td>
+    </tr>
+  }
+  <tr><td colspan="5">@ViewBag.Msg</td></tr>
+</table>
