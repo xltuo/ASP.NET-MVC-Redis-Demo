@@ -39,24 +39,23 @@ namespace ContosoTeamStats.Models
     {
         protected override void Seed(TeamContext context)
         {
-            var teams = new List<Team>
+            var teams = new List<Team>();
+            for (int i = 0; i < 100; i++)
             {
-                new Team{Name="Adventure Works Cycles"},
-                new Team{Name="Alpine Ski House"},
-                new Team{Name="Blue Yonder Airlines"},
-                new Team{Name="Coho Vineyard"},
-                new Team{Name="Contoso, Ltd."},
-                new Team{Name="Fabrikam, Inc."},
-                new Team{Name="Lucerne Publishing"},
-                new Team{Name="Northwind Traders"},
-                new Team{Name="Consolidated Messenger"},
-                new Team{Name="Fourth Coffee"},
-                new Team{Name="Graphic Design Institute"},
-                new Team{Name="Nod Publishers"}
-            };
-
+                teams.Add(new Team { Name = "Adventure Works Cycles" + i.ToString() });
+                teams.Add(new Team { Name = "Alpine Ski House" + i.ToString() });
+                teams.Add(new Team { Name = "Blue Yonder Airlines" + i.ToString() });
+                teams.Add(new Team { Name = "Coho Vineyard" + i.ToString() });
+                teams.Add(new Team { Name = "Contoso, Ltd." + i.ToString() });
+                teams.Add(new Team { Name = "Fabrikam, Inc." + i.ToString() });
+                teams.Add(new Team { Name = "Lucerne Publishing" + i.ToString() });
+                teams.Add(new Team { Name = "Northwind Traders" + i.ToString() });
+                teams.Add(new Team { Name = "Consolidated Messenger" + i.ToString() });
+                teams.Add(new Team { Name = "Fourth Coffee" + i.ToString() });
+                teams.Add(new Team { Name = "Graphic Design Institute" + i.ToString() });
+                teams.Add(new Team { Name = "Nod Publishers" + i.ToString() });
+            }
             Team.PlayGames(teams);
-
             teams.ForEach(t => context.Teams.Add(t));
             context.SaveChanges();
         }

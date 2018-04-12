@@ -82,7 +82,8 @@ namespace ContosoTeamStats.Controllers
             double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
 
             // Add the elapsed time of the operation to the ViewBag.msg.
-            ViewBag.msg += " MS: " + ms.ToString();
+            ViewBag.msg += " MS: " + ms.ToString();;
+            ViewBag.msg += " UpdateTime：" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
             return View(teams);
         }
